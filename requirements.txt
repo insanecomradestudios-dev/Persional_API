@@ -9,3 +9,4 @@ python-jose[cryptography]
 pydantic[email]
 httpx
 jinja2
+python-multipart
