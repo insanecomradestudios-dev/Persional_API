@@ -1,0 +1,9 @@
+.env
+*.pyc
+__pycache__/
+.git
+.gitignore
+test_endpoints.py
+app.db
+.env.local
+.DS_Store
