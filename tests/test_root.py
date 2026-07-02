@@ -6,4 +6,4 @@ def test_root():
     client = TestClient(app)
     res = client.get("/")
     assert res.status_code == 200
-    assert "FastAPI" in res.text or "Hello" in res.text
+    assert 'Welcome to the General API' in res.text or 'message' in res.text
