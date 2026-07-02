@@ -27,6 +27,27 @@ This project is a FastAPI-based API starter with user management, file storage, 
   
 ## Deployment  
 - Recommended free/low-cost hosts: Render, Railway  
+ 
+Post-deploy checklist
+
+- Verify the live site at: https://<your-service>.onrender.com/docs
+- Create a managed Postgres on Render (if you need production persistence) and set the `DATABASE_URL` env var in the Render service to the value Render provides.
+- Add the following secrets to your GitHub repo (Settings → Secrets → Actions):
+   - `RENDER_API_KEY` — Render API key with deploy permission
+   - `RENDER_SERVICE_ID` — Render service ID for your web service
+- After setting `DATABASE_URL` on Render, run the migration script to initialize the DB:
+
+   ```bash
+   # locally (for testing):
+   python scripts/run_migrations.py
+
+   # In CI / Render shell, ensure PYTHONPATH covers the project root and run the same script
+   ```
+
+CI / GitHub Actions
+
+- A CI workflow is included at `.github/workflows/ci.yml` which installs dependencies and runs pytest on pushes/PRs to `main`.
+- A deploy workflow is included at `.github/workflows/deploy.yml` which runs tests and optionally triggers a Render deploy if you add the `RENDER_API_KEY` and `RENDER_SERVICE_ID` secrets.
   
 ## Environment Variables  
 See .env.example for required variables and sample values.  
