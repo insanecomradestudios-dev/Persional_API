@@ -4,7 +4,8 @@ python-dotenv
 sqlalchemy
 alembic
 passlib[bcrypt]
-jose
+bcrypt<5
+python-jose[cryptography]
 pydantic[email]
 httpx
 jinja2

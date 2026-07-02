@@ -16,10 +16,10 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 
 # Example user DB (replace with real DB in production)
 fake_users_db = {
-    "user@example.com": {
-        "username": "user@example.com",
+    "insanecomradestudios@gmail.com": {
+        "username": "insanecomradestudios@gmail.com",
         "full_name": "Test User",
-        "hashed_password": pwd_context.hash("password"),
+        "hashed_password": pwd_context.hash("insanecomrade"),
         "disabled": False,
     }
 }
